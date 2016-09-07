@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+public protocol Serializable {
+    
+    init(decoder: SerializerDecoder)
+    func encode(enconder: SerializerEncoder)
+}

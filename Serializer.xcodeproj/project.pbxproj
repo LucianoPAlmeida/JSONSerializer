@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2BB0FC11D7BAF5A00F2A27C /* Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB0FC01D7BAF5A00F2A27C /* Deserializer.swift */; };
 		B2C81C191D7BA46C00A22C64 /* Serializer.h in Headers */ = {isa = PBXBuildFile; fileRef = B2C81C181D7BA46C00A22C64 /* Serializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2C81C201D7BA46C00A22C64 /* Serializer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C81C151D7BA46C00A22C64 /* Serializer.framework */; };
 		B2C81C251D7BA46C00A22C64 /* SerializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C81C241D7BA46C00A22C64 /* SerializerTests.swift */; };
+		B2C81C311D7BA4C400A22C64 /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C81C301D7BA4C400A22C64 /* Serializer.swift */; };
+		B2C81C331D7BA69C00A22C64 /* SerializerEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C81C321D7BA69C00A22C64 /* SerializerEncoder.swift */; };
+		B2C81C351D7BA6C100A22C64 /* SerializerDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C81C341D7BA6C100A22C64 /* SerializerDecoder.swift */; };
+		B2C81C391D7BA8DA00A22C64 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C81C381D7BA8DA00A22C64 /* Serializable.swift */; };
+		B2C81C3B1D7BA90400A22C64 /* DataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C81C3A1D7BA90400A22C64 /* DataTransformer.swift */; };
+		B2D2DEB51D8054E300480D1D /* DefaultDateTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2DEB41D8054E300480D1D /* DefaultDateTransformer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +30,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B2BB0FC01D7BAF5A00F2A27C /* Deserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deserializer.swift; sourceTree = "<group>"; };
 		B2C81C151D7BA46C00A22C64 /* Serializer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Serializer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C81C181D7BA46C00A22C64 /* Serializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Serializer.h; sourceTree = "<group>"; };
 		B2C81C1A1D7BA46C00A22C64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2C81C1F1D7BA46C00A22C64 /* SerializerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SerializerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C81C241D7BA46C00A22C64 /* SerializerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializerTests.swift; sourceTree = "<group>"; };
 		B2C81C261D7BA46C00A22C64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2C81C301D7BA4C400A22C64 /* Serializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializer.swift; sourceTree = "<group>"; };
+		B2C81C321D7BA69C00A22C64 /* SerializerEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializerEncoder.swift; sourceTree = "<group>"; };
+		B2C81C341D7BA6C100A22C64 /* SerializerDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializerDecoder.swift; sourceTree = "<group>"; };
+		B2C81C381D7BA8DA00A22C64 /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
+		B2C81C3A1D7BA90400A22C64 /* DataTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTransformer.swift; sourceTree = "<group>"; };
+		B2D2DEB41D8054E300480D1D /* DefaultDateTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultDateTransformer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +85,10 @@
 		B2C81C171D7BA46C00A22C64 /* Serializer */ = {
 			isa = PBXGroup;
 			children = (
-				B2C81C181D7BA46C00A22C64 /* Serializer.h */,
-				B2C81C1A1D7BA46C00A22C64 /* Info.plist */,
+				B2C81C371D7BA87F00A22C64 /* Protocol */,
+				B2C81C361D7BA74100A22C64 /* Serializer */,
+				B2C81C2F1D7BA48A00A22C64 /* Files */,
+				B2D2DEB61D8054F200480D1D /* Transformers */,
 			);
 			path = Serializer;
 			sourceTree = "<group>";
@@ -84,6 +100,43 @@
 				B2C81C261D7BA46C00A22C64 /* Info.plist */,
 			);
 			path = SerializerTests;
+			sourceTree = "<group>";
+		};
+		B2C81C2F1D7BA48A00A22C64 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				B2C81C181D7BA46C00A22C64 /* Serializer.h */,
+				B2C81C1A1D7BA46C00A22C64 /* Info.plist */,
+			);
+			name = Files;
+			sourceTree = "<group>";
+		};
+		B2C81C361D7BA74100A22C64 /* Serializer */ = {
+			isa = PBXGroup;
+			children = (
+				B2C81C301D7BA4C400A22C64 /* Serializer.swift */,
+				B2BB0FC01D7BAF5A00F2A27C /* Deserializer.swift */,
+				B2C81C321D7BA69C00A22C64 /* SerializerEncoder.swift */,
+				B2C81C341D7BA6C100A22C64 /* SerializerDecoder.swift */,
+			);
+			name = Serializer;
+			sourceTree = "<group>";
+		};
+		B2C81C371D7BA87F00A22C64 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B2C81C381D7BA8DA00A22C64 /* Serializable.swift */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
+		B2D2DEB61D8054F200480D1D /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				B2D2DEB41D8054E300480D1D /* DefaultDateTransformer.swift */,
+				B2C81C3A1D7BA90400A22C64 /* DataTransformer.swift */,
+			);
+			name = Transformers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +247,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2C81C391D7BA8DA00A22C64 /* Serializable.swift in Sources */,
+				B2C81C331D7BA69C00A22C64 /* SerializerEncoder.swift in Sources */,
+				B2C81C351D7BA6C100A22C64 /* SerializerDecoder.swift in Sources */,
+				B2D2DEB51D8054E300480D1D /* DefaultDateTransformer.swift in Sources */,
+				B2C81C3B1D7BA90400A22C64 /* DataTransformer.swift in Sources */,
+				B2BB0FC11D7BAF5A00F2A27C /* Deserializer.swift in Sources */,
+				B2C81C311D7BA4C400A22C64 /* Serializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +370,7 @@
 		B2C81C2A1D7BA46C00A22C64 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -320,12 +381,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepid.Serializer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		B2C81C2B1D7BA46C00A22C64 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -378,6 +441,7 @@
 				B2C81C2B1D7BA46C00A22C64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B2C81C2C1D7BA46C00A22C64 /* Build configuration list for PBXNativeTarget "SerializerTests" */ = {
 			isa = XCConfigurationList;
@@ -386,6 +450,7 @@
 				B2C81C2E1D7BA46C00A22C64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
