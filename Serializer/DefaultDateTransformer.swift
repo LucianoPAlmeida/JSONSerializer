@@ -8,22 +8,22 @@
 
 import Foundation
 
-public class DefaultDateTransformer: DataTransformer<NSDate,String?>{
-    private var dateFomatter: NSDateFormatter!
+open class DefaultDateTransformer: DataTransformer<Date,String?>{
+    fileprivate var dateFomatter: DateFormatter!
     
     public override init() {
-        dateFomatter = NSDateFormatter()
+        dateFomatter = DateFormatter()
         dateFomatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS z" //ISO Format
     }
     
-    override func toJSON(object: NSDate) -> String?{
-        return dateFomatter.stringFromDate(object)
+    override func toJSON(_ object: Date) -> String?{
+        return dateFomatter.string(from: object)
     }
     
-    override func fromJSON(object: String?) -> NSDate {
+    override func fromJSON(_ object: String?) -> Date {
         if let string = object {
-            return dateFomatter.dateFromString(string) ?? NSDate()
+            return dateFomatter.date(from: string) ?? Date()
         }
-        return  NSDate()
+        return  Date()
     }
 }

@@ -8,11 +8,11 @@
 
 import Foundation
 
-public class DataTransformer<K,T> {
-    func toJSON(object: K)-> T {
+open class DataTransformer<K,T> {
+    func toJSON(_ object: K)-> T {
         fatalError("Abstract Method")
     }
-    func fromJSON(object: T) -> K {
+    func fromJSON(_ object: T) -> K {
         fatalError("Abstract Method")
     }
 }

@@ -8,33 +8,33 @@
 
 import UIKit
 
-public class SerializerDecoder: NSObject {
+open class SerializerDecoder: NSObject {
 
-    private(set) var properties: [String: AnyObject]
+    fileprivate(set) var properties: [String: AnyObject]
     
     init(properties: [String : AnyObject]) {
         self.properties = properties
     }
     
     
-    public func decodeInteger(key: String)-> Int {
+    open func decodeInteger(_ key: String)-> Int {
         return properties[key] as? Int ?? 0
     }
     
-    public func decodeDouble(key: String) -> Double {
+    open func decodeDouble(_ key: String) -> Double {
         return properties[key] as? Double ?? 0
     }
     
-    public func decodeNumber(key: String) -> NSNumber{
+    open func decodeNumber(_ key: String) -> NSNumber{
         return properties[key] as? NSNumber ?? 0
     }
     
-    public func decodeString(key: String) -> String {
+    open func decodeString(_ key: String) -> String {
         return properties[key] as? String ?? ""
     }
     
     
-    public func decodeSerializableObject<T: Serializable>(key: String)-> T? {
+    open func decodeSerializableObject<T: Serializable>(_ key: String)-> T? {
         if let obj = properties[key] as? [String : AnyObject] {
            return T.init(decoder: SerializerDecoder(properties: obj))
         }
@@ -42,7 +42,7 @@ public class SerializerDecoder: NSObject {
     }
     
     
-    public func decodeSerializableObjectArray<T: Serializable>(key: String)-> [T]? {
+    open func decodeSerializableObjectArray<T: Serializable>(_ key: String)-> [T]? {
         if let objects = properties[key] as? [[String : AnyObject]]{
             return objects.map({return T.init(decoder: SerializerDecoder(properties: $0))})
         }
@@ -50,19 +50,19 @@ public class SerializerDecoder: NSObject {
     }
         
     
-    public func decodeDoubleArray(key: String)-> [Double]?{
+    open func decodeDoubleArray(_ key: String)-> [Double]?{
         return properties[key] as? [Double]
     }
     
-    public func decodeIntArray(key: String)-> [Int]? {
+    open func decodeIntArray(_ key: String)-> [Int]? {
         return properties[key] as? [Int]
     }
     
-    public func decodeStringArray(key: String) -> [String]? {
+    open func decodeStringArray(_ key: String) -> [String]? {
         return properties[key] as? [String]
     }
     
-    public func decodeObject<K,T>(key key: String, withDataTransformer transformer: DataTransformer<T,K>)-> T?{
+    open func decodeObject<K,T>(key: String, withDataTransformer transformer: DataTransformer<T,K>)-> T?{
         if let value = properties[key] as? K {
             return transformer.fromJSON(value)
         }

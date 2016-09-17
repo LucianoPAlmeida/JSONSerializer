@@ -8,60 +8,58 @@
 
 import Foundation
 
-public class SerializerEncoder: NSObject {
-    private(set) var properties: [String: AnyObject] = [:]
+open class SerializerEncoder: NSObject {
+    fileprivate(set) var properties: [String: AnyObject] = [:]
     
     
     
-    public func encodeInteger(intValue: Int, forKey key: String){
-        return properties[key] = intValue
+    open func encodeInteger(_ intValue: Int, forKey key: String){
+        return properties[key] = intValue as AnyObject?
     }
     
-    public func encodeDouble(doubleValue: Double, forKey key: String){
-        return properties[key] = doubleValue
+    open func encodeDouble(_ doubleValue: Double, forKey key: String){
+        return properties[key] = doubleValue as AnyObject?
     }
     
-    public func encodeLong(number: NSNumber, forKey key: String){
+    open func encodeLong(_ number: NSNumber, forKey key: String){
         return properties[key] = number
     }
     
-    public func encodeString(string: String, forKey key: String) {
-        return properties[key] = string
+    open func encodeString(_ string: String, forKey key: String) {
+        return properties[key] = string as AnyObject?
     }
     
     
-    public func encodeSerializableObject<T: Serializable>(object: T,forKey key: String){
+    open func encodeSerializableObject<T: Serializable>(_ object: T,forKey key: String){
         let encoder = SerializerEncoder()
         object.encode(encoder)
-        properties.updateValue(encoder.properties, forKey: key)
+        properties.updateValue(encoder.properties as AnyObject, forKey: key)
     }
     
     
-    public func encodeSerializableObjectArray<T: Serializable>(objects: [T],forKey key: String){
+    open func encodeSerializableObjectArray<T: Serializable>(_ objects: [T],forKey key: String){
         let values = objects.map { (object) -> SerializerEncoder in
             let encoder = SerializerEncoder()
             object.encode(encoder)
             return encoder
         }.map({$0.properties})
-        properties.updateValue(values, forKey: key)
+        properties.updateValue(values as AnyObject, forKey: key)
     }
     
     
-    public func encodeDoubleArray(doubleArray: [Double], forKey key: String){
-        properties[key] = doubleArray
+    open func encodeDoubleArray(_ doubleArray: [Double], forKey key: String){
+        properties[key] = doubleArray as AnyObject?
     }
     
-    public func encodeIntArray(intArray: [Int], forKey key: String){
-        return properties[key] = intArray
+    open func encodeIntArray(_ intArray: [Int], forKey key: String){
+        return properties[key] = intArray as AnyObject?
     }
     
-    public func encodeStringArray(stringArray: [String], forKey key: String){
-        return properties[key] = stringArray
+    open func encodeStringArray(_ stringArray: [String], forKey key: String){
+        return properties[key] = stringArray as AnyObject?
     }
     
-    public func encodeObject<K,T>(object: T ,forKey key: String, withDataTransformer transformer: DataTransformer<T,K>){
-        if let anyObjc = transformer.toJSON(object) as? AnyObject {
-            properties.updateValue(anyObjc, forKey: key)
-        }
+    open func encodeObject<K,T>(_ object: T ,forKey key: String, withDataTransformer transformer: DataTransformer<T,K>){
+        properties.updateValue(transformer.toJSON(object) as AnyObject, forKey: key)        
     }
 }

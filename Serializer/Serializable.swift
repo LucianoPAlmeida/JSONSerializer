@@ -11,5 +11,5 @@ import Foundation
 public protocol Serializable {
     
     init(decoder: SerializerDecoder)
-    func encode(enconder: SerializerEncoder)
+    func encode(_ enconder: SerializerEncoder)
 }
