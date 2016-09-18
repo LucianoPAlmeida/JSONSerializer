@@ -10,9 +10,9 @@ import UIKit
 
 open class SerializerDecoder: NSObject {
 
-    fileprivate(set) var properties: [String: AnyObject]
+    fileprivate(set) var properties: [String: Any]
     
-    init(properties: [String : AnyObject]) {
+    init(properties: [String : Any]) {
         self.properties = properties
     }
     
@@ -35,7 +35,7 @@ open class SerializerDecoder: NSObject {
     
     
     open func decodeSerializableObject<T: Serializable>(_ key: String)-> T? {
-        if let obj = properties[key] as? [String : AnyObject] {
+        if let obj = properties[key] as? [String : Any] {
            return T.init(decoder: SerializerDecoder(properties: obj))
         }
         return nil
@@ -43,7 +43,7 @@ open class SerializerDecoder: NSObject {
     
     
     open func decodeSerializableObjectArray<T: Serializable>(_ key: String)-> [T]? {
-        if let objects = properties[key] as? [[String : AnyObject]]{
+        if let objects = properties[key] as? [[String : Any]]{
             return objects.map({return T.init(decoder: SerializerDecoder(properties: $0))})
         }
         return nil

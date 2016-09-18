@@ -31,11 +31,11 @@ open class Serializer<T: Serializable>: NSObject {
         
     }
     
-    open class func keyValueObjects(_ array: [T]) -> [[String : AnyObject]] {
+    open class func keyValueObjects(_ array: [T]) -> [[String : Any]] {
         return array.map({keyValueObject($0)})
     }
     
-    open class func keyValueObject(_ object: T) -> [String: AnyObject]{
+    open class func keyValueObject(_ object: T) -> [String: Any]{
         let encoder = SerializerEncoder()
         object.encode(encoder)
         return encoder.properties

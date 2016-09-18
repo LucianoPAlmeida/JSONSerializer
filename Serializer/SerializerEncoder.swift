@@ -9,16 +9,16 @@
 import Foundation
 
 open class SerializerEncoder: NSObject {
-    fileprivate(set) var properties: [String: AnyObject] = [:]
+    fileprivate(set) var properties: [String: Any] = [:]
     
     
     
     open func encodeInteger(_ intValue: Int, forKey key: String){
-        return properties[key] = intValue as AnyObject?
+        return properties[key] = intValue
     }
     
     open func encodeDouble(_ doubleValue: Double, forKey key: String){
-        return properties[key] = doubleValue as AnyObject?
+        return properties[key] = doubleValue
     }
     
     open func encodeLong(_ number: NSNumber, forKey key: String){
@@ -26,7 +26,7 @@ open class SerializerEncoder: NSObject {
     }
     
     open func encodeString(_ string: String, forKey key: String) {
-        return properties[key] = string as AnyObject?
+        return properties[key] = string
     }
     
     
@@ -43,23 +43,23 @@ open class SerializerEncoder: NSObject {
             object.encode(encoder)
             return encoder
         }.map({$0.properties})
-        properties.updateValue(values as AnyObject, forKey: key)
+        properties.updateValue(values , forKey: key)
     }
     
     
     open func encodeDoubleArray(_ doubleArray: [Double], forKey key: String){
-        properties[key] = doubleArray as AnyObject?
+        properties[key] = doubleArray
     }
     
     open func encodeIntArray(_ intArray: [Int], forKey key: String){
-        return properties[key] = intArray as AnyObject?
+        return properties[key] = intArray
     }
     
     open func encodeStringArray(_ stringArray: [String], forKey key: String){
-        return properties[key] = stringArray as AnyObject?
+        return properties[key] = stringArray
     }
     
     open func encodeObject<K,T>(_ object: T ,forKey key: String, withDataTransformer transformer: DataTransformer<T,K>){
-        properties.updateValue(transformer.toJSON(object) as AnyObject, forKey: key)        
+        properties.updateValue(transformer.toJSON(object), forKey: key)        
     }
 }
