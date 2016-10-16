@@ -9,20 +9,31 @@
 import Foundation
 
 open class DefaultDateTransformer: DataTransformer<Date,String?>{
-    fileprivate var dateFomatter: DateFormatter!
+    fileprivate var dateFormatter: DateFormatter!
+    
+    var dateFormat: String = "yyyy-MM-dd'T'HH:mm:ss.SSS z" /*ISO Format*/{
+        didSet{
+            dateFormatter?.dateFormat = dateFormat
+        }
+    }
     
     public override init() {
-        dateFomatter = DateFormatter()
-        dateFomatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS z" //ISO Format
+        dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+    }
+    
+    convenience init(dateFormat: String) {
+        self.init()
+        self.dateFormat = dateFormat
     }
     
     override func toJSON(_ object: Date) -> String?{
-        return dateFomatter.string(from: object)
+        return dateFormatter.string(from: object)
     }
     
     override func fromJSON(_ object: String?) -> Date {
         if let string = object {
-            return dateFomatter.date(from: string) ?? Date()
+            return dateFormatter.date(from: string) ?? Date()
         }
         return  Date()
     }

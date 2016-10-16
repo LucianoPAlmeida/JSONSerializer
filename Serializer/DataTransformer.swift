@@ -10,9 +10,9 @@ import Foundation
 
 open class DataTransformer<K,T> {
     func toJSON(_ object: K)-> T {
-        fatalError("Abstract Method")
+        fatalError("\(#function) is an abstract Method")
     }
     func fromJSON(_ object: T) -> K {
-        fatalError("Abstract Method")
+        fatalError("\(#function) is an abstract Method")
     }
 }
