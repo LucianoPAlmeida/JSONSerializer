@@ -14,21 +14,24 @@ open class SerializerEncoder: NSObject {
     
     
     open func encodeInteger(_ intValue: Int, forKey key: String){
-        return properties[key] = intValue
+        properties[key] = intValue
     }
     
     open func encodeDouble(_ doubleValue: Double, forKey key: String){
-        return properties[key] = doubleValue
+        properties[key] = doubleValue
     }
     
     open func encodeLong(_ number: NSNumber, forKey key: String){
-        return properties[key] = number
+        properties[key] = number
     }
     
     open func encodeString(_ string: String, forKey key: String) {
-        return properties[key] = string
+        properties[key] = string
     }
     
+    open func encodeDictionary(_ dictionary: String, forKey key: String){
+        return properties[key] = dictionary
+    }
     
     open func encodeSerializableObject<T: Serializable>(_ object: T,forKey key: String){
         let encoder = SerializerEncoder()
@@ -52,11 +55,11 @@ open class SerializerEncoder: NSObject {
     }
     
     open func encodeIntArray(_ intArray: [Int], forKey key: String){
-        return properties[key] = intArray
+        properties[key] = intArray
     }
     
     open func encodeStringArray(_ stringArray: [String], forKey key: String){
-        return properties[key] = stringArray
+        properties[key] = stringArray
     }
     
     open func encodeObject<K,T>(_ object: T ,forKey key: String, withDataTransformer transformer: DataTransformer<T,K>){

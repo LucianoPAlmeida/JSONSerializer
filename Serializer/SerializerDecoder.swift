@@ -33,6 +33,9 @@ open class SerializerDecoder: NSObject {
         return properties[key] as? String ?? ""
     }
     
+    open func decodeDictionary(_ dictionary: String, forKey key: String)-> [String : Any]?{
+        return properties[key] as? [String : Any]
+    }
     
     open func decodeSerializableObject<T: Serializable>(_ key: String)-> T? {
         if let obj = properties[key] as? [String : Any] {
