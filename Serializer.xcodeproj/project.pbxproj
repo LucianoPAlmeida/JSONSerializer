@@ -30,7 +30,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B25A48651DD8D40400DD7D3C /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		B2BB0FC01D7BAF5A00F2A27C /* Deserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deserializer.swift; sourceTree = "<group>"; };
 		B2C81C151D7BA46C00A22C64 /* Serializer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Serializer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C81C181D7BA46C00A22C64 /* Serializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Serializer.h; sourceTree = "<group>"; };
@@ -108,7 +107,6 @@
 			children = (
 				B2C81C181D7BA46C00A22C64 /* Serializer.h */,
 				B2C81C1A1D7BA46C00A22C64 /* Info.plist */,
-				B25A48651DD8D40400DD7D3C /* Package.swift */,
 			);
 			name = Files;
 			sourceTree = "<group>";
