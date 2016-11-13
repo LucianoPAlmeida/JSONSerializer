@@ -9,6 +9,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "JSONSerializer"
+    name: "JSONSerializer",
+    exclude: ["SerializerTests"]
 )
 
