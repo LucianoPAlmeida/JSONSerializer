@@ -6,7 +6,7 @@
 //  Copyright © 2016 Luciano Almeida. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 open class SerializerDecoder: NSObject {
 
@@ -17,20 +17,20 @@ open class SerializerDecoder: NSObject {
     }
     
     
-    open func decodeInteger(_ key: String)-> Int {
-        return properties[key] as? Int ?? 0
+    open func decodeInteger(_ key: String)-> Int? {
+        return properties[key] as? Int
     }
     
-    open func decodeDouble(_ key: String) -> Double {
-        return properties[key] as? Double ?? 0
+    open func decodeDouble(_ key: String) -> Double? {
+        return properties[key] as? Double
     }
     
-    open func decodeNumber(_ key: String) -> NSNumber{
-        return properties[key] as? NSNumber ?? 0
+    open func decodeNumber(_ key: String) -> NSNumber?{
+        return properties[key] as? NSNumber
     }
     
-    open func decodeString(_ key: String) -> String {
-        return properties[key] as? String ?? ""
+    open func decodeString(_ key: String) -> String? {
+        return properties[key] as? String
     }
     
     open func decodeDictionary(_ dictionary: String, forKey key: String)-> [String : Any]?{

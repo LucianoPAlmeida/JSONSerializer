@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class DefaultDateTransformer: DataTransformer<Date,String?>{
+open class DefaultDateTransformer: DataTransformer<Date,String>{
     fileprivate var dateFormatter: DateFormatter!
     
     var dateFormat: String = "yyyy-MM-dd'T'HH:mm:ss.SSS z" /*ISO Format*/{
@@ -27,7 +27,7 @@ open class DefaultDateTransformer: DataTransformer<Date,String?>{
         self.dateFormat = dateFormat
     }
     
-    override func toJSON(_ object: Date) -> String?{
+    override func toJSON(_ object: Date) -> String{
         return dateFormatter.string(from: object)
     }
     
