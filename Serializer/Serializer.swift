@@ -24,7 +24,7 @@ open class Serializer<T: Serializable>: NSObject {
     open class func JSONData(_ object: T) -> Data? {
         let json = keyValueObject(object)
         do{
-            return try JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions.prettyPrinted)
+            return try JSONSerialization.data(withJSONObject: json)
         }catch {
             return nil
         }
